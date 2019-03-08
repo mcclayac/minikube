@@ -1,0 +1,33 @@
+
+
+
+FROM node:6.14.2
+EXPOSE 8080
+COPY server.js .
+CMD node server.js
+
+
+# Build Image
+docker build --tag=nodeimage .
+
+# tag image mcclayac/get-started:part2
+$ docker tag nodeimage mcclayac/nodeimage:part2
+$ docker tag nodeimage localhost/nodeimage:part2
+
+# Confirm that Local registry is up
+$ docker container ls | grep registry
+693d4be949b5        registry                                   "/entrypoint.sh /etc…"   20 hours ago        Up 20 hours         0.0.0.0:5000->5000/tcp              registry
+
+
+# Push Image to repository
+# Push the image
+$ docker push mcclayac/nodeimage:part2
+$ docker push localhost:5000/nodeimage:part2
+
+# Push to Registries
+$ docker push mcclayac/nodeimage:part2
+$ docker tag nodeimage localhost:5000/nodeimage:part2
+Anthonys-MacBook-Pro:minikube mcclayac$ docker push localhost:5000/nodeimage:part2
+The push refers to repository [localhost:5000/nodeimage]
+
+

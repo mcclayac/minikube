@@ -1,0 +1,8 @@
+version: "3.0"
+services:
+  nodeservice:
+    build: .
+    ports:
+      - "9393:9393"
+    volumes:
+      - ./app:/app

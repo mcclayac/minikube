@@ -30,4 +30,20 @@ $ docker tag nodeimage localhost:5000/nodeimage:part2
 Anthonys-MacBook-Pro:minikube mcclayac$ docker push localhost:5000/nodeimage:part2
 The push refers to repository [localhost:5000/nodeimage]
 
+$ docker build . -t miniapp
+
+
+docker run -d --name minikube_app -p 8080:8080 miniapp:v0.0.1
+359cf91dd24f26c2fc0d129eb21b5af8ca29f9e4f6cd903b965b1749ab2fbb03
+
+$ docker build . -t miniapp:v0.0.2
+
+# build image for kubernetes
+$ docker build . -t mcclayac/nodeservice9393:v0.0.3
+
+# push to dockerhub
+docker push mcclayac/nodeservice9393:v0.0.3
+
+$ docker push mcclayac/nodeservice9393:v0.0.3
+
 
